@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易钟表</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			width: 300px;
+			height: 303px;
+			margin: 0 auto;
+			background: url("imgs/imgclock/clock.png");
+			position: relative;
+		}
+		.hour{
+			width: 10px;
+			height: 80px;
+			background: #000;
+			position: absolute;
+			left: 145px;
+			top: 71px;
+			border-radius: 4px;
+		}
+		.min{
+			width: 6px;
+			height: 105px;
+			background: #000;
+			position: absolute;
+			left: 147px;
+			top: 46px;
+			border-radius: 6px;
+		}
+		.sec{
+			width: 4px;
+			height: 120px;
+			background:red;
+			position: absolute;
+			left:148px;
+			top: 30px;
+			border-radius: 6px;
+		}
+		.cover{
+			width: 16px;
+			height: 16px;
+			background: blue;
+			border-radius: 50%;
+			position: absolute;
+			left: 142px;
+			top: 142px;
+		}
+		span{
+			transform-origin: center bottom;
+		}
+		#close{
+			width: 50px;
+			height: 50px;
+			background: url(imgs/imgwork/close.jpg) no-repeat;
+			background-size: 100%;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+				var oBtn=document.querySelector('#close');
+		
+				oBtn.onclick=function(){
+					window.close();
+				}
+			var oSpanH=document.querySelector('.hour');
+			var oSpanM=document.querySelector('.min');
+			var oSpanS=document.querySelector('.sec');
+			clock();
+			function clock(){
+				var oDate=new Date();
+				var oH=oDate.getHours();
+				var oM=oDate.getMinutes();
+				var oS=oDate.getSeconds();
+				var oMs=oDate.getMilliseconds();
+				var iH=oH%12*30+oM/60*30;
+				var iM=oM*6+oH/60*6;
+				var iS=oS*6+oMs/1000*6;
+				
+
+				
+				oSpanH.style.transform='rotateZ('+iH+'deg)';
+				oSpanM.style.transform='rotateZ('+iM+'deg)';
+				oSpanS.style.transform='rotateZ('+iS+'deg)';
+			}
+			setInterval(function(){
+				clock();
+			},30)
+		}
+	</script>
+</head>
+<iframe src="index.html" name="clock" width="0" height="0" frameborder="0" scrolling="no"></iframe>
+<body style="background:#000;">
+	<div id="close" title="关闭"></div>
+	<div id="box">
+		<span class="hour"></span>
+		<span class="min"></span>
+		<span class="sec"></span>
+		<span class="cover"></span>
+	</div>	
+</body>
+</html>

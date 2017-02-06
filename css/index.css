@@ -1,0 +1,438 @@
+body{
+			margin:0 auto;
+		}
+		#box{
+			width: 84rem;
+		}
+		#returnTop{
+			width: 4rem;
+			height: 4rem;
+			position: fixed;
+			right: -10rem;
+			bottom: 2rem;
+			z-index: 1;
+		}
+		#returnTop a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: url(imgs/backTop.png) #f60 no-repeat;
+			background-size: 100%;
+			border-radius: 50%;
+			-webkit-box-shadow:0 0 0.1rem 0.1rem #fff;
+		}
+		#returnTop a:hover{
+			background-color: green;
+		}
+		.nav-top{
+			width: 100%;
+			height: 5rem;
+			background: url(imgs/top.png) 34rem 0 no-repeat;
+			background-size: 60% 100%;
+			position: relative;
+		}
+		.nav-top .nav-list{
+			width: 48%;
+			height: 3.5rem;
+			position: absolute;
+			left: 30%;
+			top: 0.5rem;
+			background: -webkit-linear-gradient(top,skyblue 16%,#000);
+			-webkit-transform: perspective(800px) rotateX(-8deg) rotateY(1deg);
+			-webkit-transform-style: preserve-3d; 
+			-webkit-box-shadow: 0 0 0.1rem 0.08rem #fff;
+			border-radius:2rem;
+		}
+		.nav-top .nav-list li{
+			width: calc(40%/3);
+			height: 50%;
+			float: left;
+			margin:1rem 2.3rem;
+
+
+		}
+		.addborder{
+			-webkit-transform: perspective(800px) translateZ(2rem);
+			color:#76EE00 !important;
+		}
+		.nav-top .nav-list li a{
+			width: 100%;
+			height: 100%;
+			display: block;
+			text-align: center;
+			line-height: 1.7rem;
+			font-size: 1.3rem;
+			color: #fff;
+		}
+		.nav-top .logo{
+			width: 19rem;
+			height: 100%;
+			/*background: green;*/
+			margin-left: 1rem;
+
+		}
+		.nav-top .logo a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			line-height:4rem ;
+			font-size:3rem;
+			text-align: right;
+			text-decoration: underline;
+			font-weight: bold;
+			font-family: 'kaiti'!important;
+		}
+		#banner-box{
+			width: 100%;
+			height: 34rem;
+			background:url(imgs/banner1.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+
+		}
+		#banner-box .left-box{
+			width: 30%;
+			height: 40%;
+			background: #ccc;
+			opacity: 0.5;
+			position: absolute;
+			left: 3rem;
+			top: 3.6rem;
+		}
+		#banner-box .left-box p{
+			font-size: 1.4rem;
+		}
+		#banner{
+			width: 56%;
+			height: 80%;
+			background: yellow;
+			position: absolute;
+			right: 3rem;
+			top: 1.8rem;
+			overflow: hidden;
+			-webkit-box-shadow:0 0 0.5rem 0.5rem #fff;
+			cursor: pointer;
+		}
+		#banner ul{
+			width: 537.6rem;
+			height: 100%;
+			background: purple;
+			position: absolute;
+			left: -268.8rem;
+		}
+		#banner ul li{
+			width: 67.2rem;
+			height: 100%;
+			float: left;
+		}
+		#describe-box{
+			width: 100%;
+			height: 45rem;
+			background: url(imgs/me1.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		.title-box{
+			width: 100%;
+			height: 4rem;
+			background: #eeeeee;
+		}
+		.title-text{
+			width: 16rem;
+			height: 100%;
+			line-height: 4rem;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.title-box .pic1{
+			background: url(imgs/person.png) 2.8rem center no-repeat;
+			background-size: 10% 40%;
+			font-size: 1.4rem;
+		}
+		.title-box .pic2{
+			background: url(imgs/skills.png) 2.8rem center no-repeat;
+			background-size: 11% 38%;
+			font-size: 1.4rem;
+		}
+		.title-box .pic3{
+			background: url(imgs/zuopin.png) 2.4rem center no-repeat;
+			background-size: 14% 50%;
+			font-size: 1.4rem;
+		}
+		.title-box .pic4{
+			background: url(imgs/lianxi.png) 2.4rem center no-repeat;
+			background-size: 14% 46%;
+			font-size: 1.4rem;
+		}
+		#describe-box .describe-content-left{
+			width: 30rem;
+			height: 30rem;
+			/*background: aqua;*/
+			position: absolute;
+			left: 3rem;
+			top: 6rem;
+
+		}
+		#describe-box .describe-content-left .title{
+			font-size: 1.4rem;
+			text-align: center;
+		}
+		#describe-box .describe-content-right .title{
+			font-size: 1.4rem;
+			text-align: center;
+		}
+		#describe-box .describe-content-left p{
+			padding-left: 2.4rem;
+			padding-top: 0.5rem;
+			font-size:1rem;
+		}
+		#describe-box .describe-content-right{
+			width: 30rem;
+			height: 30rem;
+			/*background: aqua;*/
+			position: absolute;
+			right: 3rem;
+			top: 6rem;
+		}
+		#describe-box .describe-content-right p{
+			padding-left: 2.4rem;
+			padding-top: 0.5rem;
+			font-size:1rem;
+		}
+		#skills-box{
+			width: 100%;
+			height: 45rem;
+			background: url(imgs/skillsback.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		/*#skills-box .autoTurn{
+			width: 8rem;
+			height: 8rem;
+			background: pink;
+			position: absolute;
+		}*/
+		#skills-box .skills-describe{
+			width: 40rem;
+			height: 28rem;
+			/*background: red;*/
+			position: absolute;
+			right: 4rem;
+			top: 8rem;
+		}
+		#skills-box .skills-describe p{
+			padding-top: 2rem;
+			line-height: 2rem;
+			text-indent: 2em;
+			font-size: 1rem;
+		}
+		#skills-box .skills-leval{
+			width: 30rem;
+			height:24rem;
+			background: #ccc;
+			position: absolute;
+			left: 3rem;
+			top: 10rem;
+			border-left:0.2rem solid blue;
+			border-bottom:0.2rem solid blue;
+		}
+		#skills-box .skills-leval .skills-name{
+			width: 36rem;
+			height: 4rem;
+			position: absolute;
+			left: 1rem;
+			bottom: -5rem;
+
+		}
+		#skills-box .skills-leval .skills-name li{
+			float: left;
+			text-align: center;
+			font-size: 0.5rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(1){
+			width: 6rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(2){
+			width: 4rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(3){
+			width: 7rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(4){
+			width: 3rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(5){
+			width: 7rem;
+		}
+		#skills-box .skills-leval span{
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: 2.6rem;
+			height: 1rem;
+		}
+		#skills-box .skills-leval span p{
+			width: 100%;
+			height: 2rem;
+			position: absolute;
+			left: 0;
+			top: -2rem;
+			text-align: center;
+			line-height: 2rem;
+			font-size: 1rem;
+		}
+		 .skills-leval .skill-1{
+		 	background: yellow;
+		 	left: 2.6rem;
+		 }
+		 .skills-leval .skill-2{
+		 	background: green;
+		 	left: 7.8rem;
+		 }
+		  .skills-leval .skill-3{
+		 	background: pink;
+		 	left: 13rem;
+		 }
+		  .skills-leval .skill-4{
+		 	background: aqua;
+		 	left: 18.2rem;
+		 }
+		  .skills-leval .skill-5{
+		 	background: #f60;
+		 	left: 23.4rem;
+		 }
+		#works-box{
+			width: 100%;
+			height: 40rem;
+			background: url(imgs/108.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+	
+		#works-box ul{
+			width: 80rem;
+			height: 32rem;
+			/*background: url(imgs/105.jpg) no-repeat;*/
+			background-size: 100%;
+			margin: 2.4rem auto;
+			position: absolute;
+			left: 2rem;
+			-webkit-transform-style: preserve-3d;
+
+		}
+		#works-box ul li{
+			width: 24rem;
+			height: 14rem;
+			background: green;
+			float: left;
+			margin:1rem 1rem 1.2rem 1.5rem;
+			-webkit-transition: 1s;
+			-webkit-transform-style: preserve-3d;
+			position: relative;
+			-webkit-box-shadow:0 0 0.4rem 0.4rem #fff;
+		}
+		#works-box ul li:nth-child(1){
+			background: url(imgs/3d.png) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(2){
+			background: url(imgs/music.PNG) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(3){
+			background: url(imgs/screen.png) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(4){
+			background: url(imgs/phone.png) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(5){
+			background: url(imgs/clockback.PNG) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(6){
+			background: url(imgs/bonback.PNG) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li .back{
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			-webkit-transform:translateZ(-1px);
+			/*-webkit-transform:scale(1,1);*/
+		}
+		#works-box ul li .back a{
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: absolute;
+		}
+		#works-box ul li .front{
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			-webkit-transform:translateZ(1px);
+			background: #000;
+		}
+		#works-box ul li a{
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		#contact-box{
+			width: 100%;
+			height: 30rem;
+			background: url(imgs/dream.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		#contact-box .contact-text{
+			width: 30rem;
+			height: 18rem;
+			position: absolute;
+			left: 3rem;
+			bottom: 4rem;
+		}
+		#contact-box .contact-text p{
+			padding-top: 2rem;
+			padding-left: 3rem;
+			font-size:1rem;
+		}
+		#contact-box .contact-text p span{
+			font-weight: bold;
+		}
+		#contact-box .right-text{
+			width: 30rem;
+			height:18rem;
+			/*border: 1px solid #000;*/
+			position: absolute;
+			right: 3rem;
+			bottom: 4rem;
+			
+		}
+		#contact-box .right-text p{
+			font-family: 'kaiti';
+			font-size: 2rem;
+		}
+		footer{
+			width: 100%;
+			height: 2.5rem;
+			background: gray;
+		}
+		footer p{
+			width: 100%;
+			height: 2.5rem;
+			background: #666;
+			text-align: center;
+			line-height: 2.5rem;
+			color: #fff;
+			font-size: 1.2rem;
+			font-family: 'kaiti';
+		}

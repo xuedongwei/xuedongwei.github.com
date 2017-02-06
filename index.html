@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+	<title>个人站</title>
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		function change(){
+			document.documentElement.style.fontSize=5/420*document.documentElement.clientWidth+'px';
+		}
+		$(window).resize(function(){
+			change();
+		});
+		$(document).ready(function(){
+			change();
+			// nav
+			$('.nav-list li a').mouseover(function(){
+				$(this).addClass('addborder');
+			}).mouseout(function(){
+				$(this).removeClass('addborder')
+			});
+			// banner
+			var timer=null;
+			function move(){
+				timer=setInterval(function(){
+					if(Math.abs(parseInt($('.banner').css('left')))=='0'){
+						$('.banner').css('left',"-268.8rem");
+					}
+					$('.banner').animate({left:'+=67.2rem'},1000);		
+				},3000);
+			}
+			move();
+			
+			$('.banner').mouseover(function(){
+				clearInterval(timer);
+			}).mouseout(function(){
+				clearInterval(timer);
+				move();
+
+			});
+			// skills-data
+			function addData(){
+				var dis=Math.abs($('#skills-box').offset().top-$(window).scrollTop());
+				if(dis>48&&dis<160){
+					if(bOk==false) return;
+					$('.skills-leval>span').each(function(i){
+						bOk=false;
+						if(i==0){
+							$(this).animate({
+								height:'16rem'
+							},1000);
+						}
+						if(i==1){
+							$(this).animate({
+								height:'18rem'
+							},1000);
+						}
+						if(i==2){
+							$(this).animate({
+								height:'16rem'
+							},1000);
+						}
+						if(i==3){
+							$(this).animate({
+								height:'14rem'
+							},1000);
+						}
+						if(i==4){
+							$(this).animate({
+								height:'14rem'
+							},1000,function(){
+								bOk=true;
+							});
+						}			
+					});
+				}	
+			}
+			var bOk=true;
+			$(window).scroll(function(){
+            	addData();
+				
+			});
+			// a ckick
+			$('.skillsClass').click(function(){
+				setTimeout(function(){
+					$('.skills-leval>span').each(function(i){
+						bOk=false;
+						if(i==0){
+							$(this).animate({
+								height:'20rem'
+							},1000);
+						}
+						if(i==1){
+							$(this).animate({
+								height:'18rem'
+							},1000);
+						}
+						if(i==2){
+							$(this).animate({
+								height:'14rem'
+							},1000);
+						}
+						if(i==3){
+							$(this).animate({
+								height:'19rem'
+							},1000);
+						}
+						if(i==4){
+							$(this).animate({
+								height:'13rem'
+							},1000,function(){
+								bOk=true;
+							});
+						}			
+					});
+				},30);
+			});
+			
+			// returnTop-button controll
+
+			var bOk1=true;
+			var timer2=null;
+			$(window).scroll(function(){
+				if(bOk1==false) return;
+				bOk1=false;
+				$('#returnTop').animate({
+					right:'1rem'
+				},1000,function(){
+					bOk1=true;
+					clearTimeout(timer2);
+					timer2=setTimeout(function(){
+						$('#returnTop').animate({
+							right:'-10rem'
+						},500);
+					},4000);
+					
+				});	
+			});
+
+			// controll turnBack
+			 $('#works-box ul').mouseenter(function(){
+			 	Turn();
+			 	
+			 });
+			 $('#works-box ul').mouseleave(function(){
+			 	$('#works-box ul li').each(function(i){
+					if(i==0||i==1||i==2){
+						$(this).get(0).style.transform='perspective(800px) rotateX('+360+'deg)';
+					}
+					if(i==3||i==4||i==5){
+						$(this).get(0).style.transform='perspective(800px) rotateX('+360+'deg)';
+					}
+			
+				});
+				
+			 });
+			function Turn(){
+				
+				$('#works-box ul li').each(function(i){
+					if(i==0||i==1||i==2){
+						$(this).get(0).style.transform='perspective(800px) scale(1,-1) rotateX('+180+'deg)';
+					}
+					if(i==3||i==4||i==5){
+						$(this).get(0).style.transform='perspective(800px) scale(1,-1) rotateX('+180+'deg)';
+					}
+			
+				});
+			}
+				
+			
+			
+		});
+	</script>
+	<style type="text/css">
+		@font-face{
+			font-family: 'kaiti';
+			src:url('font/kaiti.ttf');
+		}
+		*{
+			padding: 0;
+			margin:0;
+			list-style: none;
+			/*font-family: 'kaiti';*/
+			font-family: 'Microsoft Yahei';
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		.clearfix{
+			display: block;
+			content: "";
+			clear: both;
+		}
+		.clearfix{
+			zoom:1;
+		}
+		body{
+			margin:0 auto;
+		}
+		#box{
+			width: 84rem;
+		}
+		#returnTop{
+			width: 4rem;
+			height: 4rem;
+			position: fixed;
+			right: -10rem;
+			bottom: 2rem;
+			z-index: 1;
+		}
+		#returnTop a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: url(imgs/backTop.png) #f60 no-repeat;
+			background-size: 100%;
+			border-radius: 50%;
+			-webkit-box-shadow:0 0 0.1rem 0.1rem #fff;
+		}
+		#returnTop a:hover{
+			background-color: green;
+		}
+		.nav-top{
+			width: 100%;
+			height: 5rem;
+			background: url(imgs/top.png) 34rem 0 no-repeat;
+			background-size: 60% 100%;
+			position: relative;
+		}
+		.nav-top .nav-list{
+			width: 48%;
+			height: 3.5rem;
+			position: absolute;
+			left: 30%;
+			top: 0.5rem;
+			background: -webkit-linear-gradient(top,skyblue 16%,#000);
+			-webkit-transform: perspective(800px) rotateX(-8deg) rotateY(1deg);
+			-webkit-transform-style: preserve-3d; 
+			-webkit-box-shadow: 0 0 0.1rem 0.08rem #fff;
+			border-radius:2rem;
+		}
+		.nav-top .nav-list li{
+			width: calc(40%/3);
+			height: 50%;
+			float: left;
+			margin:1rem 2.3rem;
+
+
+		}
+		.addborder{
+			-webkit-transform: perspective(800px) translateZ(2rem);
+			color:#76EE00 !important;
+		}
+		.nav-top .nav-list li a{
+			width: 100%;
+			height: 100%;
+			display: block;
+			text-align: center;
+			line-height: 1.7rem;
+			font-size: 1.3rem;
+			color: #fff;
+		}
+		.nav-top .logo{
+			width: 19rem;
+			height: 100%;
+			/*background: green;*/
+			margin-left: 1rem;
+
+		}
+		.nav-top .logo a{
+			display: block;
+			width: 100%;
+			height: 100%;
+			line-height:4rem ;
+			font-size:3rem;
+			text-align: right;
+			text-decoration: underline;
+			font-weight: bold;
+			font-family: 'kaiti'!important;
+		}
+		#banner-box{
+			width: 100%;
+			height: 34rem;
+			background:url(imgs/banner1.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+
+		}
+		#banner-box .left-box{
+			width: 30%;
+			height: 40%;
+			background: #ccc;
+			opacity: 0.5;
+			position: absolute;
+			left: 3rem;
+			top: 3.6rem;
+		}
+		#banner-box .left-box p{
+			font-size: 1.4rem;
+		}
+		#banner{
+			width: 56%;
+			height: 80%;
+			background: yellow;
+			position: absolute;
+			right: 3rem;
+			top: 1.8rem;
+			overflow: hidden;
+			-webkit-box-shadow:0 0 0.5rem 0.5rem #fff;
+			cursor: pointer;
+		}
+		#banner ul{
+			width: 537.6rem;
+			height: 100%;
+			background: purple;
+			position: absolute;
+			left: -268.8rem;
+		}
+		#banner ul li{
+			width: 67.2rem;
+			height: 100%;
+			float: left;
+		}
+		#describe-box{
+			width: 100%;
+			height: 45rem;
+			background: url(imgs/me1.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		.title-box{
+			width: 100%;
+			height: 4rem;
+			background: #eeeeee;
+		}
+		.title-text{
+			width: 16rem;
+			height: 100%;
+			line-height: 4rem;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.title-box .pic1{
+			background: url(imgs/person.png) 2.8rem center no-repeat;
+			background-size: 10% 40%;
+			font-size: 1.4rem;
+		}
+		.title-box .pic2{
+			background: url(imgs/skills.png) 2.8rem center no-repeat;
+			background-size: 11% 38%;
+			font-size: 1.4rem;
+		}
+		.title-box .pic3{
+			background: url(imgs/zuopin.png) 2.4rem center no-repeat;
+			background-size: 14% 50%;
+			font-size: 1.4rem;
+		}
+		.title-box .pic4{
+			background: url(imgs/lianxi.png) 2.4rem center no-repeat;
+			background-size: 14% 46%;
+			font-size: 1.4rem;
+		}
+		#describe-box .describe-content-left{
+			width: 30rem;
+			height: 30rem;
+			/*background: aqua;*/
+			position: absolute;
+			left: 3rem;
+			top: 6rem;
+
+		}
+		#describe-box .describe-content-left .title{
+			font-size: 1.4rem;
+			text-align: center;
+		}
+		#describe-box .describe-content-right .title{
+			font-size: 1.4rem;
+			text-align: center;
+		}
+		#describe-box .describe-content-left p{
+			padding-left: 2.4rem;
+			padding-top: 0.5rem;
+			font-size:1rem;
+		}
+		#describe-box .describe-content-right{
+			width: 30rem;
+			height: 30rem;
+			/*background: aqua;*/
+			position: absolute;
+			right: 3rem;
+			top: 6rem;
+		}
+		#describe-box .describe-content-right p{
+			padding-left: 2.4rem;
+			padding-top: 0.5rem;
+			font-size:1rem;
+		}
+		#skills-box{
+			width: 100%;
+			height: 45rem;
+			background: url(imgs/skillsback.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		/*#skills-box .autoTurn{
+			width: 8rem;
+			height: 8rem;
+			background: pink;
+			position: absolute;
+		}*/
+		#skills-box .skills-describe{
+			width: 40rem;
+			height: 28rem;
+			/*background: red;*/
+			position: absolute;
+			right: 4rem;
+			top: 8rem;
+		}
+		#skills-box .skills-describe p{
+			padding-top: 2rem;
+			line-height: 2rem;
+			text-indent: 2em;
+			font-size: 1rem;
+		}
+		#skills-box .skills-leval{
+			width: 30rem;
+			height:24rem;
+			background: #ccc;
+			position: absolute;
+			left: 3rem;
+			top: 10rem;
+			border-left:0.2rem solid blue;
+			border-bottom:0.2rem solid blue;
+		}
+		#skills-box .skills-leval .skills-name{
+			width: 36rem;
+			height: 4rem;
+			position: absolute;
+			left: 1rem;
+			bottom: -5rem;
+
+		}
+		#skills-box .skills-leval .skills-name li{
+			float: left;
+			text-align: center;
+			font-size: 0.5rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(1){
+			width: 6rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(2){
+			width: 4rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(3){
+			width: 7rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(4){
+			width: 3rem;
+		}
+		#skills-box .skills-leval .skills-name li:nth-child(5){
+			width: 7rem;
+		}
+		#skills-box .skills-leval span{
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: 2.6rem;
+			height: 1rem;
+		}
+		#skills-box .skills-leval span p{
+			width: 100%;
+			height: 2rem;
+			position: absolute;
+			left: 0;
+			top: -2rem;
+			text-align: center;
+			line-height: 2rem;
+			font-size: 1rem;
+		}
+		 .skills-leval .skill-1{
+		 	background: yellow;
+		 	left: 2.6rem;
+		 }
+		 .skills-leval .skill-2{
+		 	background: green;
+		 	left: 7.8rem;
+		 }
+		  .skills-leval .skill-3{
+		 	background: pink;
+		 	left: 13rem;
+		 }
+		  .skills-leval .skill-4{
+		 	background: aqua;
+		 	left: 18.2rem;
+		 }
+		  .skills-leval .skill-5{
+		 	background: #f60;
+		 	left: 23.4rem;
+		 }
+		#works-box{
+			width: 100%;
+			height: 40rem;
+			background: url(imgs/108.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+	
+		#works-box ul{
+			width: 80rem;
+			height: 32rem;
+			/*background: url(imgs/105.jpg) no-repeat;*/
+			background-size: 100%;
+			margin: 2.4rem auto;
+			position: absolute;
+			left: 2rem;
+			-webkit-transform-style: preserve-3d;
+
+		}
+		#works-box ul li{
+			width: 24rem;
+			height: 14rem;
+			background: green;
+			float: left;
+			margin:1rem 1rem 1.2rem 1.5rem;
+			-webkit-transition: 1s;
+			-webkit-transform-style: preserve-3d;
+			position: relative;
+			-webkit-box-shadow:0 0 0.4rem 0.4rem #fff;
+		}
+		#works-box ul li:nth-child(1){
+			background: url(imgs/3d.png) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(2){
+			background: url(imgs/music.PNG) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(3){
+			background: url(imgs/screen.png) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(4){
+			background: url(imgs/phone.png) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(5){
+			background: url(imgs/clockback.PNG) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li:nth-child(6){
+			background: url(imgs/bonback.PNG) no-repeat;
+			background-size: 100%;
+		}
+		#works-box ul li .back{
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			-webkit-transform:translateZ(-1px);
+			/*-webkit-transform:scale(1,1);*/
+		}
+		#works-box ul li .back a{
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: absolute;
+		}
+		#works-box ul li .front{
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			-webkit-transform:translateZ(1px);
+			background: #000;
+		}
+		#works-box ul li a{
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		#contact-box{
+			width: 100%;
+			height: 30rem;
+			background: url(imgs/dream.jpg) no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		#contact-box .contact-text{
+			width: 30rem;
+			height: 18rem;
+			position: absolute;
+			left: 3rem;
+			bottom: 4rem;
+		}
+		#contact-box .contact-text p{
+			padding-top: 2rem;
+			padding-left: 3rem;
+			font-size:1rem;
+		}
+		#contact-box .contact-text p span{
+			font-weight: bold;
+		}
+		#contact-box .right-text{
+			width: 30rem;
+			height:18rem;
+			/*border: 1px solid #000;*/
+			position: absolute;
+			right: 3rem;
+			bottom: 4rem;
+			
+		}
+		#contact-box .right-text p{
+			font-family: 'kaiti';
+			font-size: 2rem;
+		}
+		footer{
+			width: 100%;
+			height: 2.5rem;
+			background: gray;
+		}
+		footer p{
+			width: 100%;
+			height: 2.5rem;
+			background: #666;
+			text-align: center;
+			line-height: 2.5rem;
+			color: #fff;
+			font-size: 1.2rem;
+			font-family: 'kaiti';
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="returnTop"><a href="#"></a></div>
+		<header>
+			<nav class="nav-top clearfix">
+			<h1 class="logo"><a href="#" alt="">Job description</a></h1>
+				<ul class="nav-list">
+					<li><a href="#describe-box">个人简介</a></li>
+					<li><a class="skillsClass" href="#skills-box">职业技能</a></li>
+					<li><a href="#works-box">个人作品</a></li>
+					<li><a href="#contact-box">联系方式</a></li>
+				</ul>
+			</nav>
+			<div id="banner-box">
+				<div class="left-box">
+					<p>Where there is a will,there is a way!</p>
+					<p>Time is money!</p>
+					<p>Nothing is difficult to the man who will try!</p>
+					<p>Dream about the future...</p>	
+				</div>
+				<div id="banner">
+					<ul class="clearfix banner">
+						<li style="background: url(imgs/0.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/1.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/2.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/3.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/0.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/1.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/2.jpg) no-repeat; background-size: 100%;"></li>
+						<li style="background: url(imgs/3.jpg) no-repeat; background-size: 100%;"></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<section id="describe-box">
+			<div class="title-box">
+				<h2 class="title-text pic1">个人简介</h2>
+			</div>
+			<div class="describe-content-left">
+				<p class="title">基本信息</p>
+				<p class="name">姓名:&nbsp薛东伟</p>
+				<p class="age">年龄：&nbsp24岁</p>
+				<p class="leval">文化程度：&nbsp大专</p>
+				<p class="school">毕业学校:&nbsp黑龙江农业工程职业学院</p>
+				<p class="leval">主修课程:&nbsp C语言  GIS地理信息系统与遥感  Mapinfo工程软件编程</p>
+				<p class="leval">选修课程:&nbsp：HTML CSS网页设计</p>
+				<p class="home">故乡:&nbsp黑龙江省</p>
+				<p class="nowHome">现居住地:&nbsp北京</p>
+				<p class="workState">工作地点:&nbsp北京-不限</p>
+			</div>
+			<div class="describe-content-right">
+				<p class="title">工作经验</p>
+				<p class="workYear">工作年限：&nbsp1年以上</p>
+				<p class="workExperience">实习经历：&nbsp2015.06-2016.01在哈尔滨唯创网讯科技开发有限公司实习。</p>
+				<p class="workExperience">工作经历：&nbsp2016.02在常青汇教育咨询有限公司负责静态页面和效果的编写。</p>
+			</div>
+		</section>
+		<section id="skills-box">
+			<!-- <div class="autoTurn"></div> -->
+			<div class="title-box">
+				<h2 class="title-text pic2">职业技能</h2>
+			</div>
+			<div class="skills-leval">
+				<ul class="skills-name clearfix">
+					<li>html5/css3</li>
+					<li>javascript</li>
+					<li>jquery</li>
+					<li>angular</li>
+					<li>else</li>
+				</ul>
+				<span class="skill-1">
+					<p class="skill-1-data">80%</p>
+					
+				</span>
+				<span class="skill-2">
+					<p class="skill-2-data">90%</p>
+					
+				</span>
+				<span class="skill-3">
+					<p class="skill-3-data">80%</p>
+					
+				</span>
+				<span class="skill-4">
+					<p class="skill-4-data">70%</p>
+					
+				</span>
+				<span class="skill-5">
+					<p class="skill-5-data">70%</p>
+					
+				</span>
+			</div>
+			<div class="skills-describe">
+				<p>专业技能及职业素养</p>
+				<p>1、熟练使用HTML、CSS、JavaScript等技术，进行web页面及移动端的页面开发。
+					2、熟悉并运用Jquery、Jqueryui、Bootstrap等框架
+					3、熟练掌握DOM、BOM、Ajax等相关知识，熟悉基本的数据结构与算法。
+					4、熟练使用SVN、GIT、PS、DW、Sublime等工具。
+					5、熟悉并能运用HTML5和CSS3写一些常用的效果。
+					6、熟悉面向对象的机制和设计模式，能够运用模块化进行编程。
+				</p>
+				<p>作为一名程序编写人员，具备团队精神和协作能力的基本素质。对项目的需求有一定理解能力和分析能力，能够实现代码的规范化和重用。有经常测试的习惯，能沉着冷静的解决程序存在的bug，善于思考、总结。</p>
+			</div>
+		</section>
+		<section id="works-box">
+			<div class="title-box">
+				<h2 class="title-text pic3">个人作品</h2>
+			</div>
+			<!-- <div class="center">
+				<span index="0" class="span1"></span>
+				<span index="1" class="span2"></span>
+				<span index="2" class="span3"></span>
+				<span index="3" class="span4"></span>
+				<span index="4" class="span5"></span>
+				<span index="5" class="span6"></span>
+			</div> -->
+			<ul>
+				<li>
+					<span class="back">
+						<a href="3d.html" target="pic1"></a>
+					</span>
+					<span class="front"></span>
+					<a class="center" href=""></a>
+				</li>
+				<li>
+					<span class="back">
+						<a href="music.html" target="music"></a>
+					</span>
+					<span class="front"></span>
+					<a class="center" href=""></a>
+				</li>
+				<li>
+					<span class="back">
+						<a href="screen.html" target="screen"></a>
+					</span>
+					<span class="front"></span>
+					<a class="center" href=""></a>
+				</li>
+				<li>
+					<span class="back">
+						<a href="phone.html" target="phone"></a>
+					</span>
+					<span class="front"></span>
+					<a class="center" href=""></a>
+				</li>
+				<li>
+					<span class="back">
+						<a href="clock.html" target="clock"></a>
+					</span>
+					<span class="front"></span>
+					<a class="center" href=""></a>
+				</li>
+				<li>
+					<span class="back">
+						<a href="bon.html" target="bon"></a>
+					</span>
+					<span class="front"></span>
+					<a class="center" href=""></a>
+				</li>
+			</ul>
+		</section>
+		<section id="contact-box">
+			<div class="title-box">
+				<h2 class="title-text pic4">联系方式</h2>
+			</div>
+			<div class="contact-text">
+				<p><span>Tel:</span></span>&nbsp15911172114</p>
+				<p><span>QQ:</span>&nbsp743495187</p>
+				<p><span>E-mail:</span>&nbsp15911172114@163.com</p>
+			</div>
+			<div class="right-text">
+				<p>结束语</p>
+				<p>时间如同一条奔流的长河！让我们踏着矫健的步伐，一起拥抱这美好的明天...</p>
+			</div>
+		</section>
+		<footer>
+			<p>Copyright Xuedongwei</p>
+		</footer>
+	</div>
+	
+</body>
+</html>

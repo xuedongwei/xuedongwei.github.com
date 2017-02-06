@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易音乐播放器</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oP=document.querySelector('.photo');
+			var oUl=document.querySelector('#mp3_list');
+			var oMeter2=document.querySelector('.meter2');
+			var oMp3boximg=document.querySelector('.mp3_box');
+			var oUl1=document.getElementById('button_box');
+			var aLi1=oUl1.getElementsByTagName('li');
+			var N=0;
+			var iNow=0;
+			var timer=null;
+			var arr=['千千阙歌','时间都去哪儿了','夜的钢琴曲','小苹果','雨的印记'];
+			function move(){
+
+				
+					oP.style.transform='rotateZ('+N+'deg)';
+					N+=8;
+				
+				
+					oMp3boximg.style.background='url(imgs/imgp3/back'+iNow+'.jpg) no-repeat';
+					oMp3boximg.style.backgroundSize="100%";
+					iNow++;
+					if(iNow==4){
+						iNow=0;
+					}
+				
+			}
+			function change(m){
+				oA.src='sounds/mp3/'+arr[m]+'.mp3';
+				oA.ontimeupdate=function(){
+					oMeter2.style.width=oA.currentTime/oA.duration*380+'px';	
+				}
+			}
+			
+			for(var i=0;i<arr.length;i++){
+				var oLi=document.createElement('li');
+				oLi.style.width='360px';
+				oLi.style.height='30px';
+				oLi.style.background='#ccc';
+				oLi.style.margin='10px auto';
+				oLi.style.color='blue';
+				oLi.style.lineHeight='30px';
+				oLi.style.fontWeight='bold';
+				oLi.style.cursor='pointer';
+				oLi.innerHTML=arr[i];
+				oUl.appendChild(oLi);
+			}
+			var aLi=oUl.getElementsByTagName('li');
+			var oA=new Audio();
+			
+			
+			for(var j=0;j<aLi.length;j++){
+				aLi[j].index=j;	
+				aLi[j].onclick=function(){
+					if(timer){
+						clearInterval(timer);
+					}
+					
+					timer=setInterval(function(){
+						move();
+					},300);
+					
+					
+					
+					
+					change(this.index);
+					oA.play();
+						
+					aLi1[2].onclick=function(){
+						if(timer){
+							clearInterval(timer);
+						}
+						clearInterval(timer);
+						oA.play();
+						timer=setInterval(function(){
+							move();
+						},300);
+					}
+					// aLi1[0].onclick=function(){
+					// 	if(timer){
+					// 		clearInterval(timer);
+					// 	}
+					// 	timer=setInterval(function(){
+					// 		move();
+					// 	},300);
+					// }
+					
+				}
+			}
+		
+			
+			
+			
+				aLi1[1].onclick=function(){
+					oA.pause();
+					clearInterval(timer);
+				}
+		
+				aLi1[4].onclick=function(){
+					alert(2)
+						
+						
+				}
+			
+			var oBtn=document.querySelector('#close');
+		
+			oBtn.onclick=function(){
+				window.close();
+			}
+
+			
+			
+		}
+	</script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+			vertical-align: top;
+			list-style: none;
+		}
+		body{
+			background: url(imgs/imgp3/bodyback.jpg);
+			background-size: 100%;
+		}
+		#box{
+			width: 410px;
+			height:600px;
+			background: url(imgs/imgp3/1.jpg) no-repeat;
+			margin: 30px 40px;
+			position: relative;
+		}
+		.meter{
+			width: 400px;
+			height: 25px;
+			background: url(imgs/imgp3/meter1.png) no-repeat;
+			position: relative;
+			background-size: 100%;
+			left: 10px;
+			top: 200px;
+		}
+		.meter2{
+			width: 380px;
+			height: 6px;
+			background: #622283;
+			position: absolute;
+			left: 8px;
+			top: 12px;
+			border-radius: 2px;
+		}
+		.meter2 .circle{
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			position: absolute;
+			right: -4px;
+			top: -6px;
+			background: #fb5dad;
+			display: block;
+			box-shadow: 0 0 14px 6px #fff;
+		}
+		.play_box{
+			width: 220px;
+			height: 50px;
+			background: url(imgs/imgp3/control_botton.png) no-repeat;
+			position: absolute;
+			right: 0px;
+			top: 120px;
+		}
+		.play_box ul li{
+			width: 30px;
+			height: 20px;
+			float: left;
+			position: absolute;
+			cursor: pointer;
+		}
+		.play_box ul li:nth-child(1){
+			left: 20px;
+			top: 18px;
+		}
+		.play_box ul li:nth-child(2){
+			left: 55px;
+			top: 18px;
+		}
+		.play_box ul li:nth-child(3){
+			left: 92px;
+			top: 18px;
+		}
+		.play_box ul li:nth-child(4){
+			left: 129px;
+			top: 18px;
+		}
+		.play_box ul li:nth-child(5){
+			left: 165px;
+			top: 18px;
+		}
+		.play_box ul{
+			position: relative;
+		}
+		.photo{
+			width: 160px;
+			height: 160px;
+			background: url(imgs/imgp3/turn.jpg) no-repeat;
+			box-shadow: 0 0 8px 2px #fff;
+			position: absolute;
+			left: 18px;
+			border-radius: 50%;
+		}
+		.mp3_box{
+			width: 410px;
+			height: 354px;
+			background: url(imgs/imgp3/back0.jpg) no-repeat;
+			background-size: 100%;
+			position: absolute;
+			left: 0;
+			top: 246px;
+			border-top: 4px solid #ccc;
+		}
+		.mp3_box ul{
+			width: 380px;
+			border: 1px solid #000;
+			margin: 10px auto;
+			background:#000;
+			opacity: 0.5;
+		}
+		#close{
+			width: 50px;
+			height: 50px;
+			background: url(imgs/imgwork/close.jpg) no-repeat;
+			background-size: 100%;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		
+	</style>
+</head>
+<iframe src="index.html" name="music" scrolling="no" frameborder="0" width="0" height="0"></iframe>
+<body>
+	<div id="close" title="关闭"></div>
+	<div id="box" style="box-shadow:0 0 1px 1px #purple;">
+		<div class="meter">
+			<div class="meter2">
+				<span class="circle"></span>
+			</div>
+		</div>
+		<div class="play_box">
+			<ul id="button_box">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="photo"></div>
+		<div class="mp3_box">
+			<ul id="mp3_list">
+				
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

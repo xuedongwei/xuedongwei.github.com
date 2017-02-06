@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+	<title>移动端UI</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		img{
+			vertical-align: top;
+		}
+		header .content{
+			width: 32rem;
+			height: 6rem;
+			background: #344a61;
+			font-size: 4rem;
+			text-align: center;
+			line-height: 6rem;
+			color: #f1f7f3;
+			position: relative;
+		}
+		header .menu_1{
+			border-right: 1px solid #435970;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		header .menu_2{
+			border-left: 1px solid #435970;
+			
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		header .content img{
+			width: 5.9rem;
+			height: 6rem;
+		}
+		section h2{
+			width: 28rem;
+			height: 4.2rem;
+			border-bottom: 1px solid #e5e5e5;
+			font-size: 1.4rem;
+			color: #d2d2d2;
+			line-height: 4.2rem;
+			margin-left: 2rem;
+		}
+		section .img_computer{
+			width: 28rem;
+			height: 18.6rem;
+			margin-left: 2rem;
+			margin-top: 2rem;
+		}
+		section .content_well{
+			width: 28rem;
+			height: 15rem;
+			border-bottom: 1px solid #e7e7e7;
+			margin-left: 2rem;
+		}
+		section .content_well p{
+			width: 28rem;
+			height: 5.5rem;
+			font-size: 2.1rem;
+			color: #191919;
+			font-weight: bold;
+			line-height: 5.5rem;
+		}
+		section .content_well img{
+			width: 28rem;
+			height: 5.5rem;
+		}
+		section .easy_box{
+			width: 28rem;
+			height: 20rem;
+			border-bottom:1px solid #e7e7e7;
+			background: url(imgs/img_phone/img_easy_box.png) 0 0 no-repeat;
+			background-size: 8rem 20rem;
+			margin-top: 2rem;
+			position: relative;
+			margin-left: 2rem;	
+		}
+		section .easy_box div{
+			width: 20rem;
+			height: 20rem;
+			position:absolute; 
+			right: 0;
+			top: 0;
+			background: url(imgs/img_phone/img_easy_box_img.png) 2rem 0 no-repeat;
+			background-size: 18rem 22rem;
+
+		}
+		section .some_box{
+			width: 28rem;
+			height: 32rem;
+			border-bottom: 1px solid #e7e7e7;
+			margin-left: 2rem
+		}
+		section .some_box p:nth-child(1){
+			width: 28rem;
+			height: 5.5rem;
+			color: #212121;
+			font-size: 1.9rem;
+			line-height: 5.5rem;
+			font-weight: bold;
+		}
+		section .some_box p:nth-child(2){
+			font-size: 0.8rem;
+			color: #7b7b7b;
+		}
+		section .some_box p:nth-child(3){
+			font-size: 1rem;
+			color: #7b7b7b;
+		}
+		section .some_box .group_box{
+			width:27.4rem;
+			height: 21rem; 
+			background:url(imgs/img_phone/img_group.png) 0 2.5rem no-repeat;
+			background-size: 27.4rem 18rem;
+		}
+		section .last_box{
+			width: 28rem;
+			height: 41.1rem;
+			border-bottom: 1px solid #e8e8e8;
+			margin-left: 2rem;
+			position: relative;
+		}
+		section .last_box p:nth-child(1){
+			width: 28rem;
+			height: 5.5rem;
+			line-height: 5.5rem;
+			font-size: 1.9rem;
+			font-weight: bold;
+		}
+		section .last_box div{
+			width: 28rem;
+			height: 17.4rem;
+			background: url(imgs/img_phone/img_person.png) no-repeat;
+			background-size: 28rem 17.4rem;
+			border-bottom: 1px solid #e5e5e5;
+		}
+		section .last_box p:nth-child(3){
+			width:  28rem;
+			height: 5.5rem;
+			line-height: 5.5rem;
+			font-size: 1.9rem;
+			font-weight: bold;
+			text-align: center;
+		}
+		section .last_box p:nth-child(4){
+			width:  28rem;
+			height: 2rem;
+			font-size: 1.1rem;
+			color: #626262;
+			text-align: center;
+			line-height: 2rem;
+		}
+		section .last_box p:nth-child(5){
+			width:  28rem;
+			height: 2rem;
+			font-size: 1.1rem;
+			color: #626262;
+			text-align: center;
+			line-height: 2rem;
+		}
+		section .last_box h3{
+			width: 19.4rem;
+			height: 7rem;
+			background: url(imgs/img_phone/img_four.png) no-repeat;
+			background-size: 19.4rem 7rem;
+			margin: 0rem auto;
+			left: 4.3rem;
+			bottom: 0;
+		}
+		footer p:nth-child(1){
+			width: 32rem;
+			height: 0.8rem;
+			font-size: 1.6rem;
+			color: #9b9b9b;
+			text-align: center;
+		}
+		footer p:nth-child(2){
+			width: 32rem;
+			height: 0.8rem;
+			font-size: 1.6rem;
+			color: #9b9b9b;
+			text-align: center;
+			margin-top: 1.2rem;
+		}
+		footer p:nth-child(3){
+			width: 32rem;
+			height: 6rem;
+			background: url(imgs/img_phone/pic_last.png) no-repeat;
+			background-size: 32rem 6rem;
+			margin-top: 2.7rem;
+			
+		}
+		#close{
+			width: 50px;
+			height: 50px;
+			background: url(imgs/imgwork/close.jpg) no-repeat;
+			background-size: 100%;
+			position: absolute;
+			right: 20px;
+			top: 5px;
+			border-radius: 50%;
+			cursor: pointer;
+			z-index: 9999;
+		}
+	</style>
+	<script type="text/javascript">
+		
+
+		
+
+		(function(win,doc){
+			change();
+			win.addEventListener('resize',function(){
+				change();
+			},false)
+			function change(){
+				doc.documentElement.style.fontSize=10/320*doc.documentElement.clientWidth+'px';
+			}
+		})(window,document)
+	</script>
+</head>
+<iframe src="index.html" name="phone" scrolling="no" frameborder="0" width="0" height="0"></iframe>
+<body>
+	<div id="close" title="关闭"></div>
+	<header>
+		<div class="content">
+			HEXAGONE
+			<img class="menu_1" src="imgs/img_phone/menu_1.png"></img>
+			<img class="menu_2" src="imgs/img_phone/menu_2.png"></img>
+		</div>
+	</header>
+	<section>
+		<h2>HOMEPAGE</h2>
+		<img class="img_computer" src="imgs/img_phone/computer.png"/>
+		<div class="content_well">
+			<p>WELL, HELLO THERE</p>
+			<img src="imgs/img_phone/content_text.png">	
+		</div>
+		<div class="easy_box">
+			<div></div>
+		</div>
+		<div class="some_box">
+			<p>SOME OF UOR WORKS</p>
+			<p>A gallery is essentil in any template,so,if it's a</p>
+			<p>mobile device, why not have a touch one!</p>	
+			<div class="group_box"></div>
+		</div>
+		<div class="last_box">
+			<p>TESTIMONIALS</p>
+			<div></div>
+			<p>GET SOCIAL WITH US</p>
+			<p style="color:red;">Get new, update,and just hang around for a chit</p>
+			<p style="color:red;">chat or two on our social networks</p>
+			<h3 class="last_div"></h3>
+		</div>
+	</section>
+	<footer>
+		<p>COPYRIGHT 2013</p>
+		<p>ALL RIGHT RESERVED</p>
+		<p></p>
+	</footer>
+</body>
+<script type="text/javascript">
+	var oBtn=document.querySelector('#close');
+		
+			oBtn.onclick=function(){
+				window.close();
+			}
+</script>
+</html>
+
